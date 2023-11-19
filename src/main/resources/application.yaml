@@ -1,1 +1,47 @@
-
+#import credentials
+spring:
+  config:
+    import: optional:credentials.yaml
+#configure the datasource
+  datasource:
+    url: jdbc:mysql://localhost:3306/authentication_server
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: true
+#mail configuration
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enabled: true
+    test-connection: true
+  #configure hateoas
+  hateoas:
+    use-hal-as-default-json-media-type: true
+#configure the server
+server:
+  error:
+    include-binding-errors: never
+    include-message: always
+    include-stacktrace: never
+  http2:
+    enabled: true
+  port: 8090
+#configure spring doc
+springdoc:
+  api-docs:
+    groups:
+      enabled: true
+  default-support-form-data: true
+  enable-hateoas: true
+  enable-spring-security: true
+  show-oauth2-endpoints: true
+  show-login-endpoint: true
+  swagger-ui:
+    enabled: true
+    with-credentials: true
