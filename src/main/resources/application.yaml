@@ -23,6 +23,10 @@ spring:
   #configure hateoas
   hateoas:
     use-hal-as-default-json-media-type: true
+#    configure virtual threads
+  threads:
+    virtual:
+      enabled: true
 #configure the server
 server:
   error:

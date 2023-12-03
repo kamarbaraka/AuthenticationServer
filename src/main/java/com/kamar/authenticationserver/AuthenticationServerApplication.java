@@ -13,11 +13,4 @@ public class AuthenticationServerApplication {
         SpringApplication.run(AuthenticationServerApplication.class, args);
     }
 
-    TomcatProtocolHandlerCustomizer<?> tomcatProtocolHandlerVirtualThreadCustomizer(){
-
-        return protocolHandler -> protocolHandler.setExecutor(
-                Executors.newVirtualThreadPerTaskExecutor()
-        );
-    }
-
 }
